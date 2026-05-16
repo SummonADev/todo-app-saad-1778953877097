@@ -1,0 +1,163 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-base), border-color var(--transition-base), opacity var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.item:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.item.completed {
+  opacity: 0.65;
+  background: var(--color-surface-2);
+}
+
+.priorityBar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+}
+
+.priorityBar[data-priority="low"] { background: var(--priority-low); }
+.priorityBar[data-priority="medium"] { background: var(--priority-medium); }
+.priorityBar[data-priority="high"] { background: var(--priority-high); }
+
+.checkbox {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  color: var(--color-text-inverse);
+  margin-left: var(--space-2);
+}
+
+.checkbox:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.checkbox.checked {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.text {
+  flex: 1;
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  word-break: break-word;
+  transition: color var(--transition-fast);
+}
+
+.text.strikethrough {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+.priority {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.priority[data-priority="low"] {
+  background: var(--priority-low-bg);
+  color: var(--priority-low);
+}
+
+.priority[data-priority="medium"] {
+  background: var(--priority-medium-bg);
+  color: var(--priority-medium);
+}
+
+.priority[data-priority="high"] {
+  background: var(--priority-high-bg);
+  color: var(--priority-high);
+}
+
+.editInput {
+  flex: 1;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  background: var(--color-surface);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.item:hover .actions,
+.item.editing .actions {
+  opacity: 1;
+}
+
+.actionBtn {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  color: var(--color-text-muted);
+}
+
+.editBtn:hover {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.deleteBtn:hover {
+  background: var(--color-danger-light);
+  color: var(--color-danger);
+}
+
+.saveBtn:hover {
+  background: var(--color-success-light);
+  color: var(--color-success);
+}
+
+.cancelBtn:hover {
+  background: var(--color-danger-light);
+  color: var(--color-danger);
+}
